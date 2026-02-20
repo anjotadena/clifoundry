@@ -21,3 +21,13 @@ lint:
 
 fmt:
 	docker compose run --rm cli ruff format .
+
+# Generate scaffolding (usage: make gen-cmd name=mycommand desc="My description")
+gen-cmd:
+	docker compose run --rm cli clifoundry generate command $(name) --desc "$(desc)"
+
+gen-service:
+	docker compose run --rm cli clifoundry generate service $(name) --desc "$(desc)"
+
+gen-test:
+	docker compose run --rm cli clifoundry generate test $(name)
