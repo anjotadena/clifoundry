@@ -1,4 +1,5 @@
 from typer.testing import CliRunner
+
 from clifoundry.main import app
 
 runner = CliRunner()

@@ -1,5 +1,10 @@
 # CLIFoundry
 
+[![CI](https://github.com/anjotadena/clifoundry/actions/workflows/ci.yml/badge.svg)](https://github.com/anjotadena/clifoundry/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/github/license/anjotadena/clifoundry)](LICENSE)
+[![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
+
 ![CLIFoundry logo](./assets/clifoundry.png)
 
 Docker-first, dynamic, team-ready Python CLI starter template with built-in scaffolding.
@@ -277,6 +282,41 @@ def run():
 ```bash
 make gen-cmd name=my-command desc="My command description"
 ```
+
+## Continuous Integration
+
+CLIFoundry uses GitHub Actions for continuous integration. Every push and pull request automatically:
+
+- ✅ **Lints code** with Ruff (`ruff check .`)
+- ✅ **Checks formatting** with Ruff (`ruff format --check .`)
+- ✅ **Runs test suite** with pytest (`pytest -q`)
+
+### CI Workflow
+
+The CI workflow is defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) and runs on Python 3.12.
+
+### Running CI Checks Locally
+
+You can run the same checks locally before pushing:
+
+```bash
+# Docker (recommended)
+make lint      # Run linting
+make fmt       # Format code
+make test      # Run tests
+
+# Or all at once
+make lint && make fmt && make test
+
+# Local Python
+ruff check .
+ruff format .
+pytest
+```
+
+### CI Status
+
+Check the [Actions tab](https://github.com/anjotadena/clifoundry/actions) for the latest CI runs and results.
 
 ## Main contributor
 
