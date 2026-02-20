@@ -1,5 +1,7 @@
 # CLIFoundry
 
+![CLIFoundry logo](./assets/clifoundry.png)
+
 Docker-first, dynamic, team-ready Python CLI starter template.
 
 ## What this template includes
