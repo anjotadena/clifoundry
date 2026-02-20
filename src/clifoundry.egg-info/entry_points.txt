@@ -1,0 +1,2 @@
+[console_scripts]
+clifoundry = clifoundry.main:app
