@@ -35,6 +35,56 @@ Windows note: Docker Desktop for Windows includes Docker Engine and Compose. Mak
 - pip (bundled with Python)
 - Make (optional, but convenient)
 
+## Getting Started
+
+### Clone the template
+
+```bash
+# Clone this repository
+git clone https://github.com/anjotadena/clifoundry.git my-cli-project
+cd my-cli-project
+
+# Remove the original git history to start fresh
+rm -rf .git
+
+# Initialize your own git repository
+git init
+git add .
+git commit -m "Initial commit from CLIFoundry template"
+```
+
+**Windows users (PowerShell):**
+```powershell
+# Clone and navigate
+git clone https://github.com/anjotadena/clifoundry.git my-cli-project
+cd my-cli-project
+
+# Remove the original git history
+Remove-Item -Recurse -Force .git
+
+# Initialize your own git repository
+git init
+git add .
+git commit -m "Initial commit from CLIFoundry template"
+```
+
+**Windows users (cmd):**
+```bat
+REM Clone and navigate
+git clone https://github.com/anjotadena/clifoundry.git my-cli-project
+cd my-cli-project
+
+REM Remove the original git history
+rmdir /s /q .git
+
+REM Initialize your own git repository
+git init
+git add .
+git commit -m "Initial commit from CLIFoundry template"
+```
+
+Now you're ready to customize the CLI for your own project!
+
 ## Quickstart (Docker)
 
 ```bash
