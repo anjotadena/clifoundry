@@ -7,21 +7,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Create non-root user
-RUN useradd -m appuser
+# Create non-root user and ensure /app is writable
+RUN useradd -m appuser \
+  && chown -R appuser:appuser /app
 USER appuser
 
 # Copy metadata first for better caching
 COPY --chown=appuser:appuser pyproject.toml README.md LICENSE /app/
 
-# Install package + dev deps (editable install done via compose volume later)
-RUN pip install --no-cache-dir --upgrade pip \
-  && pip install --no-cache-dir -e .[dev]
-
 # Copy sources
 COPY --chown=appuser:appuser src /app/src
 COPY --chown=appuser:appuser tests /app/tests
 
-ENV PYTHONPATH=/app/src
+# Install package + dev deps
+RUN pip install --no-cache-dir --upgrade pip \
+  && pip install --no-cache-dir -e .[dev]
 
-ENTRYPOINT ["clifoundry"]
+ENV PYTHONPATH=/app/src
+ENV PATH=/home/appuser/.local/bin:$PATH
+
+CMD ["clifoundry"]
