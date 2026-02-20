@@ -8,10 +8,10 @@ run:
 	docker compose run --rm cli
 
 health:
-	docker compose run --rm cli health check
+	docker compose run --rm cli clifoundry health check
 
 info:
-	docker compose run --rm cli info show
+	docker compose run --rm cli clifoundry info show
 
 test:
 	docker compose run --rm cli pytest -q
